@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTA Cybersecurity Bootcamp</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        :root {
+            --primary-blue: #0055b7;
+            --secondary-blue: #007bff;
+            --dark-blue: #003a75;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333;
+            --accent-orange: #ff6a00;
+            --accent-green: #28a745;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .top-header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            margin-right: 8px;
+        }
+        
+        .logo-section {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+                        align-items: center;
+
+        }
+        
+        .logo {
+            height: 50px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+                        align-items: center;
+
+        }
+        
+        .logo-text h1 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        
+        .logo-right {
+            text-align: right;
+        }
+        
+        .logo-right p {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('circuit.avif') center/cover;
+
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 160px; 
+            text-align: left;
+
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            padding: 0px 160px 0px;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 150px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--accent-orange);
+        }
+        
+        /* Fixed Form Styles */
+        .fixed-form-container {
+            position: fixed;
+            top: 180px;
+            bottom:50px;
+            right: 240px;
+            width: 320px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+            padding: 25px;
+        
+           
+        }
+        
+        .form-title {
+            color: black;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+           
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+        
+        .form-note {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .form-note a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn-request {
+            background-color: #001fe5;
+            color: rgb(255, 255, 255);
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .btn-request:hover {
+            background-color: #15a9b1;
+        }
+        
+        .recognition {
+            background-color: var(--light-gray);
+            padding: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        .recognition strong {
+            color: var(--primary-blue);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 30px 180px;
+            text-align: left;
+
+        }
+        
+        .section-title {
+            text-align: left;
+            margin-bottom: 50px;
+            color: var(--primary-blue);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin-right: auto;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: #555;
+        }
+        
+        /* Programs Section */
+        .programs-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .program-card {
+            background-color: white;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary-blue);
+        }
+        
+        .program-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .program-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .program-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin: 10px 0;
+        }
+        
+        .program-details {
+            margin-bottom: 25px;
+        }
+        
+        .program-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .program-details li {
+            padding: 10px 0;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .program-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .program-details li i {
+            color: var(--accent-green);
+            margin-right: 10px;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+        
+        .program-description {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            border-left: 3px solid var(--primary-blue);
+        }
+        
+        .btn-explore {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-explore:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 60px 20px 20px;
+            position: relative;
+            
+        }
+        
+        .footer::before {
+            content: '';
+          
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--accent-orange), var(--primary-blue));
+        }
+        
+        .footer-container {
+            
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-orange);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-links a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 30px 0 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .copyright img {
+            margin-top: -50px;
+
+            height: 100px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .copyright-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .copyright-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .copyright-links a:hover {
+            color: var(--accent-orange);
+        }
+
+
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1100px) {
+            .fixed-form-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+                padding: 10px 15px;
+            }
+            
+            .stat-item .number {
+                font-size: 1.5rem;
+            }
+            
+            .programs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo-area {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .logo-right {
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 15px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-stats {
+                gap: 10px;
+            }
+            
+            .stat-item {
+                min-width: 100px;
+                padding: 8px 0px;
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 60px 15px;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="header-container">
+            <div class="contact-info">
+                 
+            </div>
+        </div>
+    </div>
+    
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <div class="logo-container">
+            <div class="logo-area">
+                <img src="Dell.png" alt="Dell Logo" class="logo">
+                <div class="logo-text">
+                    <h3>Continuing Education</h3>
+                    <p>DIVISION FOR ENTERPRISE DEVELOPMENT</p>
+                </div>
+            </div>
+            <div class="logo-right">
+                <p>SPEAK WITH A LIVE ADMISSIONS ADVISOR:<br>817-678-6072 | MON-FRI 9AM TO 6PM LOCAL TIME</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Online Cybersecurity Bootcamp</h1>
+            <p>With cybersecurity employment predicted to grow 32% by 2032, there's never been a better time to grow your IT skill set and earn an industry-aligned cyber security certification. The University of Texas at Arlington's 100% online Cybersecurity Bootcamp can prepare you to become a cybersecurity professional in 10-18 weeks.</p>
+        </div>
+        
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="number">32%</div>
+                <div>Job Growth by 2032</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">100%</div>
+                <div>Online Instruction</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">10-18</div>
+                <div>Weeks to Complete</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fixed Form -->
+    <div class="fixed-form-container">
+        <h3 class="form-title">Request More Information</h3>
+        <div class="form-group">
+            <input type="text" id="full-name" placeholder="Full Name*">
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address*">
+        </div>
+        <div class="form-group">
+            <input type="tel" id="phone" placeholder="Mobile Number*">
+        </div>
+                <button class="btn-request">REQUEST MORE INFO</button>
+
+        <p class="form-note">By requesting more info, I agree to receive phone calls/texts from this bootcamp program. <a href="#">See Details*</a></p>
+          <input type="checkbox"> Sign up to receive email updates. See our <b>Privacy Policy.</b>
+
+     
+    </div>
+    
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="section-title">
+            <h2>Designed for Entry-Level Cybersecurity Jobs</h2>
+            <p>No experience needed</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>100% Online Instruction</h3>
+                <p>Complete the program entirely online from anywhere with an internet connection.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>Affordable Tuition</h3>
+                <p>Competitive pricing with flexible payment options and discounts available.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Dedicated Career Services</h3>
+                <p>Get job placement support and career coaching to launch your new career.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Flexible Scheduling</h3>
+                <p>Choose between full-time (10 weeks) or part-time (18 weeks) programs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3>Beginner-Friendly</h3>
+                <p>No prior experience required. Start your journey into IT with our foundational training.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Programs Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Choose Your Learning Track</h2>
+            <p>Our program is designed to accommodate your learning style, your schedule and your entry into the IT field</p>
+        </div>
+        
+        <div class="programs-container">
+            <!-- Part-Time Program -->
+            <div class="program-card">
+                <div class="program-header">
+                    <h3>18-Week PART TIME</h3>
+                    <p>Cybersecurity Bootcamp</p>
+                    <p>Next Cohort: Jun 09, 2025</p>
+                    <div class="program-price">$8,900*</div>
+                </div>
+                
+                <div class="program-details">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Instructor-led sessions 2x weekly</li>
+                        <li><i class="fas fa-check-circle"></i> Hands-on labs</li>
+                        <li><i class="fas fa-check-circle"></i> Capstone projects</li>
+                        <li><i class="fas fa-check-circle"></i> Peer collaboration</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated certification preparation</li>
+                        <li><i class="fas fa-check-circle"></i> 20-25 hour weekly commitment</li>
+                        <li><i class="fas fa-check-circle"></i> Career services</li>
+                    </ul>
+                </div>
+                
+                <div class="program-description">
+                    This pacing option offers a balanced approach to virtual learning. Part-time learners engage in primarily asynchronous course content, complemented by live class sessions 2x weekly. This format is ideal for students who want instructor support and have a more flexible schedule.
+                </div>
+                
+                <button class="btn-explore">Explore Pricing Options</button>
+            </div>
+            
+            <!-- Full-Time Program -->
+            <div class="program-card">
+                <div class="program-header">
+                    <h3>10-Week FULL TIME</h3>
+                    <p>Cybersecurity Bootcamp</p>
+                    <p>Next Cohort: Aug 04, 2025</p>
+                    <div class="program-price">$12,000*</div>
+                </div>
+                
+                <div class="program-details">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Live, online instructor-led sessions, Monday-Friday</li>
+                        <li><i class="fas fa-check-circle"></i> Peer collaboration</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated certification preparation</li>
+                        <li><i class="fas fa-check-circle"></i> Hands-on labs</li>
+                        <li><i class="fas fa-check-circle"></i> Capstone projects</li>
+                        <li><i class="fas fa-check-circle"></i> 35-40 hour weekly commitment</li>
+                        <li><i class="fas fa-check-circle"></i> Additional ~10 hour weekly independent work</li>
+                        <li><i class="fas fa-check-circle"></i> Career services</li>
+                    </ul>
+                </div>
+                
+                <div class="program-description">
+                    The full-time training option condenses the program into a 10-week timeline for motivated cybersecurity students. Learners participate in synchronous class sessions to advance their skills with instructor support.
+                </div>
+                
+                <button class="btn-explore">Explore Pricing Options</button>
+            </div>
+        </div>
+    </section>
+    
+
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+                    <div class="copyright">
+            <img src="Dell.png" alt="Dell Logo">
+                <div class="logo-text">
+                    <h3>Continuing Education</h3>
+                    <h3>DIVISION FOR ENTERPRISE DEVELOPMENT</h3>
+                </div>          
+        </div>
+            <div class="footer-column">
+                <h3>About the Program</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Curriculum</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Instructors</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Admissions Process</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Career Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Ensuring Accessibility</h3>
+             <p>Designing websites and applications that everyone, including people with disabilities, can use easily. This involves using readable fonts, proper contrast, keyboard navigation, alt text for images, and following standards like WCAG to promote equal digital access.</p>
+            </div>
+            
+     
+        </div>
+        
+
+    </footer>
+    
+    <script>
+        // Simple script to handle form submission
+        document.querySelector('.btn-request').addEventListener('click', function() {
+            const name = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            if(name && email && phone) {
+                alert('Thank you for your request! An admissions advisor will contact you shortly.');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
